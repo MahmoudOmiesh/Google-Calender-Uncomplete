@@ -1,0 +1,117 @@
+.addtask {
+	position: absolute;
+	z-index: 100;
+	top: -20%;
+	left: 100%;
+	width: 400px;
+	overflow: hidden;
+	background-color: var(--clr-neutral-800);
+	border-radius: 0.3em;
+	box-shadow: rgb(0 0 0 / 14%) 0px 24px 38px 3px,
+		rgb(0 0 0 / 12%) 0px 9px 46px 8px, rgb(0 0 0 / 20%) 0px 11px 15px -7px;
+	font-size: var(--fs-200);
+
+	&__content {
+		display: grid;
+		grid-template-columns: min-content 1fr;
+		row-gap: 2em;
+		column-gap: 1em;
+		padding: 1em;
+	}
+
+	&__header {
+		background-color: var(--clr-neutral-700);
+		display: flex;
+		align-items: center;
+		justify-content: end;
+		padding: 0.3em 1em;
+	}
+
+	&__close {
+		padding: 0;
+		background: none;
+		outline: 0;
+		border: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+
+	&__title {
+		grid-column: 2 / 3;
+		width: 100%;
+		outline: 0;
+		border: 0;
+		margin: 0;
+		padding: 0.5em 0;
+		background: none;
+		border-bottom: 2px solid var(--clr-neutral-300);
+		color: var(--clr-neutral-100);
+		font-weight: 500;
+		transition: border-color 170ms ease-in-out;
+		align-self: center;
+
+		&:focus {
+			border-color: var(--clr-primary-100);
+		}
+	}
+
+	&__timesvg {
+		justify-self: center;
+	}
+
+	.time {
+		display: grid;
+		gap: 1em;
+
+		&__row {
+			display: flex;
+			align-items: start;
+			gap: 1em;
+		}
+
+		&__picker {
+			background: none;
+			color: inherit;
+			border: 2px solid var(--clr-neutral-700);
+			border-radius: 0.3em;
+			padding: 0.3em;
+			outline: 0;
+		}
+	}
+
+	&__descsvg {
+		justify-self: center;
+	}
+
+	&__desc {
+		resize: none;
+		border: 0;
+		outline: 0;
+		border-bottom: 2px solid transparent;
+		border-radius: 0.3em;
+		padding: 0.3em;
+		background-color: var(--clr-neutral-700);
+		color: inherit;
+		transition: border-color 170ms ease-in-out;
+
+		&:focus {
+			border-color: var(--clr-primary-100);
+		}
+	}
+
+	&__button {
+		grid-column: 2 / 3;
+		justify-self: end;
+		background-color: var(--clr-primary-100);
+		color: white;
+		font-weight: 500;
+		font-size: var(--fs-100);
+		border: 0;
+		outline: 0;
+		padding: 0.3em 1em;
+		border-radius: 0.3em;
+		cursor: pointer;
+	}
+}

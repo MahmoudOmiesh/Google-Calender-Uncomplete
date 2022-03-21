@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="js/main.js" type="module"></script>
+		<title>Google Calender</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__content">
+				<p class="header__currentDay">Today</p>
+				<div class="header__buttons">
+					<button class="header__button" data-prev-month>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="icon icon-tabler icon-tabler-chevron-left"
+							width="25"
+							height="25"
+							viewBox="0 0 24 24"
+							stroke-width="2"
+							stroke="#c1bbb3"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<polyline points="15 6 9 12 15 18" />
+						</svg>
+					</button>
+					<button class="header__button" data-next-month>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="icon icon-tabler icon-tabler-chevron-right"
+							width="25"
+							height="25"
+							viewBox="0 0 24 24"
+							stroke-width="2"
+							stroke="#c1bbb3"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<polyline points="9 6 15 12 9 18" />
+						</svg>
+					</button>
+				</div>
+				<h3 class="header__currentMonth" data-current-month></h3>
+			</div>
+		</header>
+		<main class="calender"></main>
+	</body>
+</html>
+
+<template class="day-template">
+	<div class="calender__day day">
+		<p class="day__number"></p>
+	</div>
+</template>
+
+<template class="task-template">
+	<div class="day__task task">
+		<p class="task__time"></p>
+		<p class="task__title"></p>
+	</div>
+</template>
+
+<template class="addtask-template">
+	<div class="addtask">
+		<div class="addtask__header">
+			<button class="addtask__close">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="icon icon-tabler icon-tabler-x"
+					width="30"
+					height="30"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="rgb(169, 162, 151)"
+					fill="none"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+					<line x1="18" y1="6" x2="6" y2="18" />
+					<line x1="6" y1="6" x2="18" y2="18" />
+				</svg>
+			</button>
+		</div>
+
+		<div class="addtask__content">
+			<input type="text" class="addtask__title" placeholder="Add Title" />
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="addtask__timesvg"
+				width="30"
+				height="30"
+				viewBox="0 0 24 24"
+				stroke-width="1.5"
+				stroke="rgb(169, 162, 151)"
+				fill="none"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+				<circle cx="12" cy="12" r="9" />
+				<polyline points="12 7 12 12 15 15" />
+			</svg>
+			<div class="addtask_time time">
+				<div class="time__row">
+					<p class="time__date"></p>
+					<input type="time" class="time__picker" step="1800" />
+				</div>
+				<div>
+					<input type="checkbox" class="time__allday" id="allday" />
+					<label for="allday">All Day</label>
+				</div>
+			</div>
+
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="addtask__descsvg"
+				width="30"
+				height="30"
+				viewBox="0 0 24 24"
+				stroke-width="1.5"
+				stroke="rgb(169, 162, 151)"
+				fill="none"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+				<line x1="4" y1="6" x2="20" y2="6" />
+				<line x1="4" y1="12" x2="20" y2="12" />
+				<line x1="4" y1="18" x2="16" y2="18" />
+			</svg>
+
+			<textarea class="addtask__desc" placeholder="Add Description"></textarea>
+
+			<button class="addtask__button">Save</button>
+		</div>
+	</div>
+</template>

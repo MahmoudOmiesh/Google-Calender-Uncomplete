@@ -1,0 +1,81 @@
+.calender {
+	max-height: 100%;
+	display: grid;
+	grid-template-columns: [sun] 1fr [mon] 1fr [tue] 1fr [wed] 1fr [thu] 1fr [fri] 1fr [sat] 1fr;
+	grid-template-rows: min-content repeat(5, 1fr);
+	margin-bottom: 10em;
+
+	&__weekDay {
+		text-align: center;
+		font-size: var(--fs-100);
+		text-transform: uppercase;
+		font-weight: 500;
+		padding-block: 0.2em;
+	}
+
+	&__day {
+		color: var(--clr-neutral-50);
+		position: relative;
+		border: 1px solid var(--clr-neutral-200);
+		padding-top: 0.4em;
+		display: grid;
+		gap: 0.15em;
+		grid-template-rows: repeat(6, 1fr);
+	}
+
+	.day {
+		&__task {
+			font-size: var(--fs-100);
+			position: relative;
+			justify-self: left;
+			display: grid;
+			grid-template-columns: 0.5fr 1fr 1fr;
+			align-items: center;
+			padding: 0 1em 0 0.5em;
+			gap: 0.5em;
+			border-radius: 0.35em;
+			cursor: pointer;
+
+			&:hover {
+				background-color: var(--clr-neutral-300);
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				width: 10px;
+				aspect-ratio: 1;
+				border-radius: 50%;
+				background-color: var(--clr-primary-100);
+				grid-column: 1 / 2;
+				grid-row: 1 / 2;
+				place-self: center;
+			}
+		}
+
+		&__number {
+			cursor: pointer;
+			justify-self: center;
+			aspect-ratio: 1;
+			padding: 0.2em;
+			font-size: var(--fs-200);
+			border-radius: 50%;
+			display: grid;
+			place-items: center;
+			transition: background-color 170ms ease-in-out;
+			&:hover {
+				background-color: var(--clr-neutral-300);
+			}
+
+			&.active {
+				background-color: var(--clr-primary-100);
+			}
+		}
+	}
+
+	.task {
+		&__time {
+			grid-column: 2 / 3;
+		}
+	}
+}
